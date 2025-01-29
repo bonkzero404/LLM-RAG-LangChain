@@ -11,6 +11,11 @@ This project is a prototype agent that uses Large Language Model (LLM) with Retr
 - **LLM Integration**: Utilizes OpenAI and Ollama models for natural language processing.
 - **Retrieval-Augmented Generation (RAG)**: Enhances answer accuracy by retrieving information from relevant documents.
 - **Various Tools**: Provides tools for checking orders, creating orders, getting product lists, and more.
+- **NLP Semantic for Hybrid Caching**: Uses NLP techniques to semantically compare questions and leverage caching for faster responses.
+
+  > **NOTES:**
+  > This project uses NLP techniques to semantically compare questions and leverage caching for faster responses. By normalizing questions using the IndoBERT model and comparing their embeddings, the system can determine if a new question is similar to a previously asked question. If a similar question is found in the cache, the cached response is used, significantly reducing response time and improving efficiency.
+
 - **Chat Interface**: Interactive chat interface using Streamlit.
 
 ## Project Structure
@@ -50,6 +55,7 @@ This project is a prototype agent that uses Large Language Model (LLM) with Retr
 
 4. **Configure Environment Variables**:
    Create a .env file and add the required environment variables:
+
    ```env
    OPENAI_MODEL=your_openai_model
    OPENAI_EMBEDDINGS_MODEL=your_openai_embeddings_model
@@ -61,7 +67,14 @@ This project is a prototype agent that uses Large Language Model (LLM) with Retr
    CHROMA_PATH=./chroma
    CHROMA_COLLECTION=your_chroma_collection
    ```
+
    For a complete configuration of environment variables, refer to the [.env.example](https://github.com/bonkzero404/LLM-RAG-LangChain/blob/main/.env.example) file and [.env.example](https://github.com/bonkzero404/LLM-RAG-LangChain/blob/main/api/.env.example) from api.
+
+5. Insert Chunk Document to Chroma DB
+
+   ```sh
+   python import_vectore_store.py
+   ```
 
 ## Running the Application
 
