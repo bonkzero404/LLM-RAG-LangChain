@@ -1,0 +1,58 @@
+# EditorConfig is awesome: https://EditorConfig.org  
+  
+# Top-level EditorConfig file  
+root = true  
+  
+# Python files  
+[*.py,*.ipynb]  
+# Use 4 spaces for indentation  
+indent_style = space  
+indent_size = 4  
+  
+# Set the end of line to LF (Unix-style)  
+end_of_line = lf  
+  
+# Use UTF-8 encoding  
+charset = utf-8  
+  
+# Trim trailing whitespace  
+trim_trailing_whitespace = true  
+  
+# Ensure a newline at the end of the file  
+insert_final_newline = true  
+  
+# Max line length (PEP 8 recommends 79 or 99 characters)  
+max_line_length = 79  
+  
+# Additional settings for Python files  
+[*.{py,pyi}]  
+# Ensure consistent line endings  
+end_of_line = lf  
+  
+# Ensure consistent indentation  
+indent_style = space  
+indent_size = 4  
+  
+# Trim trailing whitespace  
+trim_trailing_whitespace = true  
+  
+# Ensure a newline at the end of the file  
+insert_final_newline = true  
+  
+# Max line length (PEP 8 recommends 79 or 99 characters)  
+max_line_length = 79  
+Penjelasan:
+indent_style = space: Menggunakan spasi untuk indentasi, sesuai dengan rekomendasi PEP 8.
+indent_size = 4: Mengatur ukuran indentasi menjadi 4 spasi, yang juga sesuai dengan PEP 8.
+end_of_line = lf: Menggunakan line ending gaya Unix (LF), yang direkomendasikan untuk konsistensi lintas platform.
+charset = utf-8: Menggunakan encoding UTF-8, yang merupakan standar untuk Python.
+trim_trailing_whitespace = true: Menghapus spasi di akhir baris untuk menjaga kebersihan kode.
+insert_final_newline = true: Memastikan ada baris baru di akhir file, sesuai dengan PEP 8.
+max_line_length = 79: Membatasi panjang baris hingga 79 karakter, sesuai dengan rekomendasi PEP 8. Anda dapat menyesuaikannya menjadi 99 jika diperlukan.
+Cara Menggunakan:
+Buat file baru dengan nama .editorconfig di root direktori proyek Anda.
+Salin dan tempel konten di atas ke dalam file tersebut.
+Pastikan editor atau IDE Anda mendukung .editorconfig (seperti VS Code, PyCharm, atau Sublime Text dengan plugin EditorConfig).
+Dengan file ini, pengaturan editor Anda akan konsisten dengan standar pengkodean Python, memudahkan
+
+

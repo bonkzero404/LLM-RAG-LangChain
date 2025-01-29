@@ -1,0 +1,35 @@
+[T]Tentang JuraganKlod[/T]
+[PC]
+JuraganKlod adalah penyedia layanan cloud terkemuka yang menawarkan berbagai solusi komputasi awan untuk memenuhi kebutuhan bisnis modern. Kami menyediakan layanan VPS (Virtual Private Server), Kubernetes, Serverless, dan Cloud Storage yang dirancang untuk memberikan performa tinggi, skalabilitas, dan keamanan yang optimal.
+[/PC]
+
+[T]Mengapa Memilih JuraganKlod[/T]
+[PC]
+- Performa Tinggi: Layanan kami dirancang dengan spesifikasi canggih untuk memastikan performa optimal.
+- Keamanan: Kami menyediakan fitur keamanan tingkat tinggi seperti firewall canggih, perlindungan DDoS, dan enkripsi data.
+- Skalabilitas: Layanan kami mendukung skalabilitas otomatis untuk menyesuaikan dengan kebutuhan bisnis Anda.
+- Fleksibilitas: Dukungan multi-cloud dan berbagai bahasa pemrograman memungkinkan fleksibilitas dalam pengembangan dan pengelolaan aplikasi.
+- Efisiensi Biaya: Model pembayaran berdasarkan penggunaan memastikan Anda hanya membayar untuk sumber daya yang digunakan.
+[/PC]
+
+[T]Visi dan Misi JuraganKlod[/T]
+[PC]
+- Visi: Menjadi penyedia layanan cloud terkemuka yang mendukung transformasi digital bisnis di seluruh dunia.
+- Misi: Menyediakan solusi cloud yang inovatif, aman, dan efisien untuk membantu bisnis mencapai efisiensi operasional dan pertumbuhan yang berkelanjutan.
+[/PC]
+
+[T]CEO JuraganKlod[/T]
+[PC]
+Ujang Sutrisna adalah CEO dan pendiri JuraganKlod. Dengan pengalaman lebih dari 20 tahun di industri teknologi informasi, Ujang telah memimpin berbagai proyek transformasi digital di perusahaan-perusahaan besar. Sebelum mendirikan JuraganKlod, Ujang bekerja di beberapa perusahaan teknologi terkemuka, termasuk Google dan Amazon, di mana ia mengembangkan keahliannya dalam manajemen infrastruktur cloud dan pengembangan aplikasi berbasis cloud.
+[/PC]
+
+[T]Biografi Ujang Sutrisna[/T]
+[PC]
+Ujang Sutrisna lahir dan dibesarkan di Bandung, Indonesia. Ia menyelesaikan pendidikan sarjana di bidang Teknik Informatika dari Institut Teknologi Bandung (ITB) dan melanjutkan studi magister di bidang Manajemen Teknologi di Massachusetts Institute of Technology (MIT). Ujang memulai karirnya sebagai insinyur perangkat lunak di Google, di mana ia berkontribusi pada pengembangan berbagai produk cloud. Setelah itu, ia bergabung dengan Amazon Web Services (AWS) sebagai manajer produk, di mana ia memimpin tim yang mengembangkan layanan cloud inovatif.
+Dengan visi untuk membawa teknologi cloud ke lebih banyak bisnis di Indonesia dan Asia Tenggara, Ujang mendirikan JuraganKlod pada tahun 2015. Di bawah kepemimpinannya, JuraganKlod telah berkembang pesat dan menjadi salah satu penyedia layanan cloud terkemuka di kawasan ini. Ujang dikenal sebagai pemimpin yang visioner dan inovatif, dengan komitmen kuat untuk mendukung transformasi digital bisnis melalui solusi cloud yang efisien dan aman.
+[/PC]
+
+[T]Alamat JuraganKlod[/T]
+[PC]
+Jl. Kepastian yang tak berujung pasti, Kabupaten Gaib Selatan No. 30, Telp: +6221-123-456
+[/PC]

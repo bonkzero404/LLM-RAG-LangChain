@@ -1,0 +1,21 @@
+[T]Layanan Cloud Storage[/T]
+[PC]
+JuraganKlod Cloud Storage adalah solusi penyimpanan data yang aman dan scalable, dirancang untuk menyimpan dan mengelola data Anda dengan mudah. Dengan dukungan untuk penyimpanan objek dan blok, serta kecepatan akses tinggi menggunakan SSD NVMe, JuraganKlod Cloud Storage memastikan data Anda selalu tersedia dan dapat diakses kapan saja. Fitur replikasi data otomatis di beberapa lokasi menjamin ketahanan dan ketersediaan data, sementara enkripsi AES-256 melindungi data Anda dari ancaman keamanan.
+Selain itu, JuraganKlod Cloud Storage menawarkan integrasi API yang kuat, memungkinkan Anda untuk menghubungkan layanan penyimpanan dengan aplikasi lain dengan mudah. Fitur backup otomatis dan pemulihan bencana memberikan perlindungan tambahan terhadap kehilangan data, sementara alat analitik penyimpanan membantu Anda memantau penggunaan dan mengoptimalkan biaya penyimpanan sesuai kebutuhan bisnis Anda.
+[/PC]
+
+[T]Spesifikasi Penyimpanan Cloud Storage[/T]
+[PC]
+- Tipe Penyimpanan: Penyimpanan objek dengan dukungan untuk S3 API, serta penyimpanan blok untuk aplikasi yang memerlukan akses cepat.
+- Kecepatan Akses: SSD NVMe dengan kecepatan baca/tulis hingga 3.500/3.000 MB/s untuk penyimpanan objek.
+- Replikasi Data: Replikasi data otomatis di beberapa lokasi untuk memastikan ketersediaan dan ketahanan data.
+- Keamanan: Enkripsi AES-256 untuk data yang disimpan dan saat transit, serta kontrol akses berbasis peran (RBAC).
+[/PC]
+
+[T]Fitur Utama Cloud Storage[/T]
+[PC]
+- Penyimpanan yang Fleksibel: Pilihan penyimpanan yang dapat disesuaikan dengan kebutuhan, mulai dari penyimpanan objek hingga penyimpanan blok.
+- Backup dan Pemulihan: Fitur backup otomatis dan pemulihan bencana untuk melindungi data Anda dari kehilangan.
+- Integrasi API: Mudah diintegrasikan dengan aplikasi dan layanan lain melalui API yang kuat.
+- Analitik Penyimpanan: Alat analitik untuk memantau penggunaan penyimpanan dan mengoptimalkan biaya.
+[/PC]

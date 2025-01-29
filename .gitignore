@@ -1,0 +1,7 @@
+__pycache__/
+chroma_*/
+.config/
+storages/reports/*
+!storages/reports/.gitignore
+
+.env

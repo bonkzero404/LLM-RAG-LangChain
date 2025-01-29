@@ -1,0 +1,21 @@
+[T]Layanan Cloud Serverless[/T]
+[PC]
+JuraganKlod Serverless adalah platform komputasi yang memungkinkan Anda menjalankan aplikasi tanpa perlu mengelola server, memberikan kemudahan dan efisiensi dalam pengembangan. Dengan spesifikasi infrastruktur yang canggih, termasuk prosesor Intel Xeon Scalable dan RAM yang dapat disesuaikan, JuraganKlod Serverless menawarkan skalabilitas otomatis berdasarkan permintaan aplikasi. Model pembayaran berdasarkan penggunaan memastikan Anda hanya membayar untuk sumber daya yang digunakan, mengurangi biaya operasional.
+Platform ini mendukung berbagai bahasa pemrograman dan framework, seperti Node.js, Python, dan Java, sehingga memudahkan pengembang dalam membangun dan meluncurkan aplikasi. Dengan koneksi internet 1 Gbps, JuraganKlod Serverless menjamin waktu respons yang cepat, memungkinkan Anda untuk fokus pada pengembangan aplikasi tanpa khawatir tentang manajemen infrastruktur.
+[/PC]
+
+[T]Spesifikasi Infrastruktur Cloud Serverless[/T]
+[PC]
+- Prosesor: Intel Xeon Scalable atau AMD EPYC untuk mendukung eksekusi fungsi dengan latensi rendah.
+- RAM: Opsi mulai dari 128 MB hingga 16 GB per fungsi, memungkinkan penyesuaian sesuai kebutuhan aplikasi.
+- Penyimpanan: Penyimpanan sementara untuk fungsi yang berjalan, dengan akses cepat ke penyimpanan cloud untuk data permanen.
+- Jaringan: Koneksi internet 1 Gbps untuk eksekusi fungsi yang cepat dan responsif.
+[/PC]
+
+[T]Fitur Utama Cloud Serverless[/T]
+[PC]
+- Tanpa Manajemen Server: Fokus pada pengembangan aplikasi tanpa perlu khawatir tentang infrastruktur.
+- Skalabilitas Otomatis: Secara otomatis menyesuaikan kapasitas berdasarkan permintaan aplikasi, dengan waktu respons yang cepat.
+- Integrasi Mudah: Mendukung berbagai bahasa pemrograman dan framework, termasuk Node.js, Python, Java, dan Go.
+- Pembayaran Berdasarkan Penggunaan: Hanya membayar untuk waktu eksekusi dan sumber daya yang digunakan, mengurangi biaya operasional.
+[/PC]

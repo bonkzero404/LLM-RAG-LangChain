@@ -1,0 +1,21 @@
+[T]Layanan Cloud VPS[/T]
+[PC]
+JuraganKlod VPS adalah solusi hosting yang memberikan kontrol penuh dan performa tinggi melalui server virtual pribadi. Dengan spesifikasi canggih seperti prosesor Intel Xeon Gold 6248R atau AMD EPYC 7742, RAM hingga 128 GB DDR4 ECC, dan penyimpanan SSD NVMe yang cepat, JuraganKlod VPS dirancang untuk memenuhi kebutuhan aplikasi bisnis modern. Setiap VPS dilengkapi dengan firewall canggih, perlindungan DDoS, dan backup otomatis harian, memastikan keamanan dan keandalan data Anda.
+Dengan akses root penuh, pengguna dapat menginstal perangkat lunak dan mengonfigurasi server sesuai kebutuhan. JuraganKlod VPS juga menawarkan bandwidth tidak terbatas dengan koneksi internet 1 Gbps, menjadikannya pilihan ideal untuk hosting situs web, aplikasi web, dan pengembangan perangkat lunak. Fleksibilitas dalam penyesuaian sumber daya memungkinkan Anda untuk mengoptimalkan biaya dan performa sesuai dengan pertumbuhan bisnis Anda.
+[/PC]
+
+[T]Spesifikasi Server Cloud VPS[/T]
+[PC]
+- Prosesor: Intel Xeon Gold 6248R (24 core, 3.0 GHz) atau AMD EPYC 7742 (64 core, 2.25 GHz) untuk performa komputasi yang optimal.
+- RAM: Pilihan mulai dari 2 GB hingga 128 GB DDR4 ECC, memungkinkan penyesuaian sesuai kebutuhan aplikasi.
+- Penyimpanan: SSD NVMe dengan kecepatan baca/tulis hingga 3.500/3.000 MB/s, tersedia dalam kapasitas mulai dari 50 GB hingga 2 TB.
+- Bandwidth: Koneksi internet 1 Gbps dengan bandwidth tidak terbatas, memastikan kecepatan akses yang tinggi.
+[/PC]
+
+[T]Fitur Utama Cloud VPS[/T]
+[PC]
+- Sumber Daya Terisolasi: Setiap VPS memiliki sumber daya CPU, RAM, dan penyimpanan yang terpisah, memastikan kinerja optimal tanpa gangguan dari pengguna lain.
+- Keamanan Tinggi: Dilengkapi dengan firewall canggih, perlindungan DDoS, dan backup otomatis harian untuk melindungi data Anda.
+- Akses Root Penuh: Kontrol penuh atas server Anda dengan akses root, memungkinkan instalasi perangkat lunak dan konfigurasi sesuai keinginan.
+- Panel Kontrol Intuitif: Mengelola VPS Anda dengan mudah melalui panel kontrol berbasis web yang user-friendly.
+[/PC]

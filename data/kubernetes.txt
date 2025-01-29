@@ -1,0 +1,22 @@
+[T]Layanan Cloud Kubernetes[/T]
+[PC]
+JuraganKlod Kubernetes adalah platform manajemen kontainer yang memungkinkan pengelolaan aplikasi berbasis kontainer dengan efisien. Dengan infrastruktur yang kuat, termasuk node worker dengan prosesor Intel Xeon Silver 4210 dan RAM hingga 256 GB, JuraganKlod Kubernetes mendukung orkestrasi kontainer yang otomatis dan skalabilitas yang mudah. Fitur integrasi CI/CD memungkinkan pengembangan yang lebih cepat, sementara dukungan multi-cloud memberikan fleksibilitas dalam pengelolaan infrastruktur.
+Platform ini juga dilengkapi dengan jaringan internal 10 Gbps untuk komunikasi antar node yang cepat, serta penyimpanan terdistribusi menggunakan Ceph atau GlusterFS. Dengan kemampuan auto-scaling, JuraganKlod Kubernetes secara otomatis menyesuaikan jumlah kontainer berdasarkan beban kerja, memastikan aplikasi Anda selalu tersedia dan responsif terhadap permintaan pasar.
+JuraganKlod Kubernetes sangat cocok untuk microservices, memungkinkan pengembangan dan pengelolaan aplikasi mikroservis dengan cepat dan mudah.
+[/PC]
+
+[T]Spesifikasi Infrastruktur Cloud Kubernetes[/T]
+[PC]
+- Node Worker: Server dengan Intel Xeon Silver 4210 (10 core, 2.2 GHz) atau AMD EPYC 7302 (16 core, 3.0 GHz) untuk mendukung beban kerja yang tinggi.
+- RAM: Minimum 16 GB DDR4 untuk setiap node, dengan opsi hingga 256 GB untuk aplikasi yang lebih besar.
+- Penyimpanan: Penyimpanan terdistribusi menggunakan Ceph atau GlusterFS, dengan SSD NVMe untuk kecepatan akses data yang tinggi.
+- Jaringan: Jaringan internal 10 Gbps untuk komunikasi antar node yang cepat dan efisien.
+[/PC]
+
+[T]Fitur Utama Cloud Kubernetes[/T]
+[PC]
+- Orkestrasi Kontainer: Mengelola siklus hidup aplikasi kontainer dengan mudah, termasuk penyebaran, penskalaan, dan pemantauan.
+- Integrasi CI/CD: Mendukung integrasi dengan alat Continuous Integration dan Continuous Deployment seperti Jenkins, GitLab CI, dan CircleCI.
+- Multi-Cloud Support: Dapat dioperasikan di berbagai penyedia cloud, memberikan fleksibilitas dalam pengelolaan infrastruktur.
+- Auto-Scaling: Secara otomatis menyesuaikan jumlah kontainer berdasarkan beban kerja, memastikan ketersediaan aplikasi.
+[/PC]
