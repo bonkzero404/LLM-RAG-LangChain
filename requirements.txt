@@ -20,7 +20,8 @@ uvicorn==0.34.0
 kaleido==0.4.2
 redis==5.2.1
 unstructured==0.16.17
-torch==2.5.1
+#torch==2.5.1
+torch==2.4.0
 transformers==4.48.1
 sqlalchemy==2.0.37
 scipy==1.15.1

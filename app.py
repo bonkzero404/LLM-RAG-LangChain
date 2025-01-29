@@ -7,6 +7,9 @@ from vector_document import VectorDocument
 from vector_store_documents import VectorStoreDocuments
 from llm_model import LLMModel
 
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
 session_id = LLMInvocation.generate_session_id()
 knowledge_directory = os.path.join(os.path.dirname(__file__), "data")
 txt_files = [f for f in os.listdir(knowledge_directory) if f.endswith('.txt')]
@@ -39,10 +42,10 @@ if user_input:
                 elif role == "assistant":
                     memory.add_ai_message(text)
 
-            output = LLMInvocation.invoke(user_input, session_id=session_id, history=memory.messages)
+            output = LLMInvocation.invoke_with_cache(user_input, session_id=session_id)
 
 
-            assistant_reply = output["output"]
+            assistant_reply = output
             st.session_state.chat_history.append(("assistant", assistant_reply))
 
             st.chat_message("assistant").write(assistant_reply)

@@ -14,4 +14,11 @@ OLLAMA_EMBEDDINGS_MODEL = os.getenv("OLLAMA_EMBEDDINGS_MODEL", "snowflake-arctic
 DATA_PATH = os.getenv("DATA_PATH", "data/")
 CHROMA_PATH = os.getenv("CHROMA_PERSIST_DIR", "./chroma_langchain_sys")
 CHROMA_COLLECTION = os.getenv("CHROMA_COLLECTION_NAME", "juragan_klod_collection")
+QUESTION_THRESHOLD = float(os.getenv("QUESTION_THRESHOLD", "0.5"))
 WITH_OLLAMA = os.getenv("WITH_OLLAMA", "true").lower() == "true"
+
+# Redis configuration
+REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
+REDIS_PORT = os.getenv("REDIS_PORT", 6379)
+REDIS_USERNAME = os.getenv("REDIS_USERNAME", "")
+REDIS_PASSWORD = os.getenv("REDIS_PASSWORD", "")
