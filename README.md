@@ -14,7 +14,7 @@ This project is a prototype agent that uses Large Language Model (LLM) with Retr
 - **NLP Semantic for Hybrid Caching**: Uses NLP techniques to semantically compare questions and leverage caching for faster responses.
 
   > **NOTES:**
-  > This project uses NLP techniques to semantically compare questions and leverage caching for faster responses. By normalizing questions using the IndoBERT model and comparing their embeddings, the system can determine if a new question is similar to a previously asked question. If a similar question is found in the cache, the cached response is used, significantly reducing response time and improving efficiency.
+  > This project uses NLP techniques to semantically compare questions and leverage caching for faster responses. By normalizing questions using the IndoBERT model and comparing their embeddings, the system can determine if a new question is similar to a previously asked question. If a similar question is found in the cache, the cached response is used, significantly reducing response time and improving efficiency. **However, caching does not apply when the response involves tools that process API requests, as the results are dynamic and may change over time.**
 
 - **Chat Interface**: Interactive chat interface using Streamlit.
 
