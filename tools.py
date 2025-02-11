@@ -1,4 +1,5 @@
-import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+import os
 from typing import Any
 from pydantic import BaseModel, Field
 from langchain.tools import tool
@@ -63,19 +64,22 @@ def order_report(year: int):
     months = response['months']
     order_counts = response['order_counts']
 
-    fig = go.Figure(data=[
-        go.Bar(x=months, y=order_counts, marker_color='blue')
-    ])
-    fig.update_layout(
-        title=f'Order Report for {year}',
-        xaxis_title='Month',
-        yaxis_title='Number of Orders',
-        xaxis=dict(tickmode='linear'),
-        template='plotly_white'
-    )
+    # Buat plot dengan Matplotlib
+    plt.figure(figsize=(10, 6))
+    plt.bar(months, order_counts, color='blue', alpha=0.7)
 
-    report_filename = f'order_report_{year}.png'
-    fig.write_image(f"storages/reports/{report_filename}")
+    plt.title(f'Order Report for {year}')
+    plt.xlabel('Month')
+    plt.ylabel('Number of Orders')
+    plt.xticks(rotation=45)
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+    # Simpan gambar
+    os.makedirs("storages/reports", exist_ok=True)
+    report_filename = f"order_report_{year}.png"
+    report_path = f"storages/reports/{report_filename}"
+    plt.savefig(report_path, bbox_inches='tight')
+    plt.close()
 
     return f"{API_URL}/storages/reports/{report_filename}"
 
@@ -90,6 +94,8 @@ def get_content(query: str):
 
     if not retrieved_docs:
         return "Maaf, tidak ada informasi yang ditemukan terkait."
+
+    print("Retrieved docs:", retrieved_docs)
 
     processed_docs = []
     for doc in retrieved_docs:

@@ -42,7 +42,7 @@ if user_input:
                 elif role == "assistant":
                     memory.add_ai_message(text)
 
-            output = LLMInvocation.invoke_with_cache(user_input, session_id=session_id)
+            output = LLMInvocation.invoke(user_input, session_id=session_id)
 
 
             assistant_reply = output
@@ -57,6 +57,7 @@ if st.button("Bersihkan Riwayat Chat"):
     st.session_state.chat_history = []
     memory = LLMInvocation.get_session_history(session_id)
     memory.clear()
+    LLMInvocation.clear_all_cache()
     LLMInvocation.config.update({"configurable": {"session_id": LLMInvocation.generate_session_id()}})
     session_id = LLMInvocation.get_current_session_id(LLMInvocation.config["configurable"])
     st.success("Riwayat chat telah dihapus.")
