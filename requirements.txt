@@ -25,3 +25,4 @@ torch==2.4.0
 transformers==4.48.1
 sqlalchemy==2.0.37
 scipy==1.15.1
+matplotlib==3.10.0
