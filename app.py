@@ -72,35 +72,35 @@ with st.sidebar:
     else:
         cm = 0
 
-    st.title("LLM Model")
+    # st.title("LLM Model")
 
-    # Model selection
-    tool = st.radio("Pilih model yang ingin digunakan:", [OPENAI_MODEL, OLLAMA_MODEL], index=cm)
+    # # Model selection
+    # tool = st.radio("Pilih model yang ingin digunakan:", [OPENAI_MODEL, OLLAMA_MODEL], index=cm)
 
-    if st.button("Terapkan Model", type="primary", use_container_width=True):
-        if tool == OLLAMA_MODEL:
-            LLMModel.with_ollama = True
-        else:
-            LLMModel.with_ollama = False
+    # if st.button("Terapkan Model", type="primary", use_container_width=True):
+    #     if tool == OLLAMA_MODEL:
+    #         LLMModel.with_ollama = True
+    #     else:
+    #         LLMModel.with_ollama = False
 
-        vector_document = VectorDocument()
-        new_doc = vector_document.chunk_documents_by_subtopic(vector_document.load_documents())
+    #     vector_document = VectorDocument()
+    #     new_doc = vector_document.chunk_documents_by_subtopic(vector_document.load_documents())
 
-        store = VectorStoreDocuments()
-        vs = store.vector_store()
-        vs.remove_collection()
-        vs.store_documents(new_doc)
+    #     store = VectorStoreDocuments()
+    #     vs = store.vector_store()
+    #     vs.remove_collection()
+    #     vs.store_documents(new_doc)
 
-        st.session_state.chat_history = []
-        memory = LLMInvocation.get_session_history(session_id)
-        memory.clear()
-        LLMInvocation.config.update({"configurable": {"session_id": LLMInvocation.generate_session_id()}})
-        session_id = LLMInvocation.get_current_session_id(LLMInvocation.config["configurable"])
-        st.success("Riwayat chat telah dihapus.")
+    #     st.session_state.chat_history = []
+    #     memory = LLMInvocation.get_session_history(session_id)
+    #     memory.clear()
+    #     LLMInvocation.config.update({"configurable": {"session_id": LLMInvocation.generate_session_id()}})
+    #     session_id = LLMInvocation.get_current_session_id(LLMInvocation.config["configurable"])
+    #     st.success("Riwayat chat telah dihapus.")
 
-        st.rerun()
+    #     st.rerun()
 
-    st.write(f"Model yang digunakan: {tool}")
+    # st.write(f"Model yang digunakan: {tool}")
 
     # Link to source of information
     st.title("Sumber Aksi")
