@@ -1,25 +1,20 @@
 import uuid
-import redis
 import json
 import hashlib
 import re
+import time
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.prompts.chat import ChatPromptTemplate
 from langchain.agents import AgentExecutor, create_tool_calling_agent
 from langchain_community.chat_message_histories import ChatMessageHistory
 from llm_model import LLMModel
 from tools import run_tool
-from config import QUESTION_THRESHOLD, REDIS_HOST, REDIS_PORT, REDIS_USERNAME, REDIS_PASSWORD
+from config import QUESTION_THRESHOLD
 
 class LLMInvocation:
-    redis_client = redis.StrictRedis(
-        host=REDIS_HOST,
-        port=REDIS_PORT,
-        username=REDIS_USERNAME,
-        password=REDIS_PASSWORD,
-    )
-
-    store = {}
+    # In-memory cache storage
+    store = {}  # For session history
+    cache = {}  # For response caching
     config = {}
 
     @staticmethod
@@ -63,7 +58,7 @@ class LLMInvocation:
 
     @staticmethod
     def clear_all_cache():
-        LLMInvocation.redis_client.flushall()
+        LLMInvocation.cache.clear()
 
     @staticmethod
     def compare_similarity(question1: str, question2: str) -> bool:
@@ -155,31 +150,29 @@ class LLMInvocation:
         agent_with_history = LLMInvocation.create_agent(tools)
         cache_key = LLMInvocation.generate_cache_key(session_id, question)
 
-        cached_response = LLMInvocation.redis_client.get(cache_key)
-        if cached_response:
-            cached_data = json.loads(cached_response)
+        # Check exact cache match
+        if cache_key in LLMInvocation.cache:
+            cached_data = LLMInvocation.cache[cache_key]
+            # Check if cache is expired (1 hour expiry)
+            if time.time() - cached_data.get("timestamp", 0) < 3600:
+                if cached_data.get("must_cache"):
+                    print("🔄 Cache ditemukan tetapi diabaikan karena menggunakan tools")
+                else:
+                    print("🔥 Menggunakan cache")
+                    memory = LLMInvocation.get_session_history(session_id)
+                    memory.add_user_message(question)
+                    memory.add_ai_message(cached_data["output"])
+                    return cached_data["output"]
 
-            if cached_data.get("must_cache"):
-                print("🔄 Cache ditemukan tetapi diabaikan karena menggunakan tools")
-            else:
-                print("🔥 Menggunakan cache")
-                memory = LLMInvocation.get_session_history(session_id)
-
-                memory.add_user_message(question)
-                memory.add_ai_message(cached_data["output"])
-
-                return cached_data["output"]
-
-        for stored_key in LLMInvocation.redis_client.keys("cache:*"):
-            cached_question_data = LLMInvocation.redis_client.get(stored_key)
-            if not cached_question_data:
+        # Check for similar questions in cache
+        for stored_key, cached_data in LLMInvocation.cache.items():
+            # Skip expired cache entries
+            if time.time() - cached_data.get("timestamp", 0) >= 3600:
                 continue
-
-            cached_json = json.loads(cached_question_data)
-            before_question = cached_json.get("input")
-
+                
+            before_question = cached_data.get("input")
             if before_question and LLMInvocation.compare_similarity(question, before_question):
-                if cached_json.get("must_cache"):
+                if cached_data.get("must_cache"):
                     print("🔄 Cache pertanyaan mirip ditemukan tetapi diabaikan karena menggunakan tools")
                 else:
                     print("🔥 Pertanyaan mirip, menggunakan cache")
@@ -187,18 +180,16 @@ class LLMInvocation:
                     print("🔥 Pertanyaan saat ini:", question)
 
                     memory = LLMInvocation.get_session_history(session_id)
-
                     memory.add_user_message(question)
-                    memory.add_ai_message(cached_json["output"])
+                    memory.add_ai_message(cached_data["output"])
+                    return cached_data["output"]
 
-                    return cached_json["output"]
-
+        # No cache hit, invoke the agent
         LLMInvocation.config = {"configurable": {"session_id": session_id}}
         output = agent_with_history.invoke({"input": question}, LLMInvocation.config)
 
         if isinstance(output, dict):
             output_data = output.get("output", "")
-
             must_cache = False
 
             for step in output.get("intermediate_steps", []):
@@ -207,11 +198,13 @@ class LLMInvocation:
                     must_cache = True
                     break
 
-            LLMInvocation.redis_client.set(cache_key, json.dumps({
+            # Store in cache
+            LLMInvocation.cache[cache_key] = {
                 "input": question,
                 "output": output_data,
-                "must_cache": must_cache
-            }), ex=3600)
+                "must_cache": must_cache,
+                "timestamp": time.time()
+            }
 
             return output_data
         else:
