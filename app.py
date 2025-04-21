@@ -10,6 +10,29 @@ from llm_model import LLMModel
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
+from dotenv import load_dotenv
+load_dotenv()
+from streamlit.runtime.scriptrunner import RerunException, RerunData
+
+AUTH_USERNAME = os.getenv("CHAT_USERNAME")
+AUTH_PASSWORD = os.getenv("CHAT_PASSWORD")
+
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
+
+if not st.session_state.authenticated:
+    st.title(f"🔒 Login {APP_NAME}")
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+    if st.button("Login"):
+        if username == AUTH_USERNAME and password == AUTH_PASSWORD:
+            st.session_state.authenticated = True
+            st.success("Login successful")
+            raise RerunException(rerun_data=RerunData())
+        else:
+            st.error("Username or password incorrect")
+    st.stop()
+
 session_id = LLMInvocation.generate_session_id()
 knowledge_directory = os.path.join(os.path.dirname(__file__), "data")
 txt_files = [f for f in os.listdir(knowledge_directory) if f.endswith('.txt')]
