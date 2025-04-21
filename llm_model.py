@@ -10,7 +10,8 @@ class LLMModel:
     @staticmethod
     def llm():
         if not LLMModel.with_ollama:
-            return ChatOpenAI(model=OPENAI_MODEL, temperature=0.5, max_tokens=500)
+            # return ChatOpenAI(model=OPENAI_MODEL, temperature=1, max_tokens=1000)
+            return ChatOpenAI(model=OPENAI_MODEL, temperature=1)
 
         return ChatOllama(model=OLLAMA_MODEL, temperature=0.5, max_tokens=500)
 

@@ -10,6 +10,31 @@ from llm_model import LLMModel
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
+import time
+
+from dotenv import load_dotenv
+load_dotenv()
+from streamlit.runtime.scriptrunner import RerunException, RerunData
+
+AUTH_USERNAME = os.getenv("CHAT_USERNAME")
+AUTH_PASSWORD = os.getenv("CHAT_PASSWORD")
+
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
+
+if not st.session_state.authenticated:
+    st.title(f"🔒 Login {APP_NAME}")
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+    if st.button("Login"):
+        if username == AUTH_USERNAME and password == AUTH_PASSWORD:
+            st.session_state.authenticated = True
+            st.success("Login successful")
+            raise RerunException(rerun_data=RerunData())
+        else:
+            st.error("Username or password incorrect")
+    st.stop()
+
 session_id = LLMInvocation.generate_session_id()
 knowledge_directory = os.path.join(os.path.dirname(__file__), "data")
 txt_files = [f for f in os.listdir(knowledge_directory) if f.endswith('.txt')]
@@ -47,8 +72,14 @@ if user_input:
 
             assistant_reply = output
             st.session_state.chat_history.append(("assistant", assistant_reply))
-
-            st.chat_message("assistant").write(assistant_reply)
+            assistant_msg = st.chat_message("assistant")
+            with assistant_msg:
+                placeholder = st.empty()
+                displayed = ""
+                for ch in assistant_reply:
+                    displayed += ch
+                    placeholder.write(displayed)
+                    time.sleep(0.02)
 
         except Exception as e:
             st.error(f"Terjadi kesalahan: {e}")
@@ -72,35 +103,35 @@ with st.sidebar:
     else:
         cm = 0
 
-    st.title("LLM Model")
+    # st.title("LLM Model")
 
-    # Model selection
-    tool = st.radio("Pilih model yang ingin digunakan:", [OPENAI_MODEL, OLLAMA_MODEL], index=cm)
+    # # Model selection
+    # tool = st.radio("Pilih model yang ingin digunakan:", [OPENAI_MODEL, OLLAMA_MODEL], index=cm)
 
-    if st.button("Terapkan Model", type="primary", use_container_width=True):
-        if tool == OLLAMA_MODEL:
-            LLMModel.with_ollama = True
-        else:
-            LLMModel.with_ollama = False
+    # if st.button("Terapkan Model", type="primary", use_container_width=True):
+    #     if tool == OLLAMA_MODEL:
+    #         LLMModel.with_ollama = True
+    #     else:
+    #         LLMModel.with_ollama = False
 
-        vector_document = VectorDocument()
-        new_doc = vector_document.chunk_documents_by_subtopic(vector_document.load_documents())
+    #     vector_document = VectorDocument()
+    #     new_doc = vector_document.chunk_documents_by_subtopic(vector_document.load_documents())
 
-        store = VectorStoreDocuments()
-        vs = store.vector_store()
-        vs.remove_collection()
-        vs.store_documents(new_doc)
+    #     store = VectorStoreDocuments()
+    #     vs = store.vector_store()
+    #     vs.remove_collection()
+    #     vs.store_documents(new_doc)
 
-        st.session_state.chat_history = []
-        memory = LLMInvocation.get_session_history(session_id)
-        memory.clear()
-        LLMInvocation.config.update({"configurable": {"session_id": LLMInvocation.generate_session_id()}})
-        session_id = LLMInvocation.get_current_session_id(LLMInvocation.config["configurable"])
-        st.success("Riwayat chat telah dihapus.")
+    #     st.session_state.chat_history = []
+    #     memory = LLMInvocation.get_session_history(session_id)
+    #     memory.clear()
+    #     LLMInvocation.config.update({"configurable": {"session_id": LLMInvocation.generate_session_id()}})
+    #     session_id = LLMInvocation.get_current_session_id(LLMInvocation.config["configurable"])
+    #     st.success("Riwayat chat telah dihapus.")
 
-        st.rerun()
+    #     st.rerun()
 
-    st.write(f"Model yang digunakan: {tool}")
+    # st.write(f"Model yang digunakan: {tool}")
 
     # Link to source of information
     st.title("Sumber Aksi")
