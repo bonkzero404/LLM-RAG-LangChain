@@ -57,15 +57,19 @@ This project is a prototype agent that uses Large Language Model (LLM) with Retr
    Create a .env file and add the required environment variables:
 
    ```env
-   OPENAI_MODEL=your_openai_model
-   OPENAI_EMBEDDINGS_MODEL=your_openai_embeddings_model
-   OLLAMA_MODEL=your_ollama_model
-   OLLAMA_EMBEDDINGS_MODEL=your_ollama_embeddings_model
-   WITH_OLLAMA=False
-   API_URL=https://api.yourdomain.com
-   DATA_PATH=./data
-   CHROMA_PATH=./chroma
-   CHROMA_COLLECTION=your_chroma_collection
+   OPENAI_API_KEY=your_open_ai_key
+   DATA_PATH=data/
+   OPENAI_MODEL=gpt-4o-mini
+   OPENAI_EMBEDDINGS_MODEL=text-embedding-3-large
+   OLLAMA_MODEL=qwen2.5:3b
+   OLLAMA_EMBEDDINGS_MODEL=snowflake-arctic-embed2
+   CHROMA_PATH=./chroma_langchain_sys
+   CHROMA_COLLECTION=juragan_klod_collection
+   API_URL=http://localhost:5050
+   WITH_OLLAMA=false
+   QUESTION_THRESHOLD=0.90
+   CHAT_USERNAME=your_username
+   CHAT_PASSWORD=your_password
    ```
 
    For a complete configuration of environment variables, refer to the [.env.example](https://github.com/bonkzero404/LLM-RAG-LangChain/blob/main/.env.example) file and [.env.example](https://github.com/bonkzero404/LLM-RAG-LangChain/blob/main/api/.env.example) from api.

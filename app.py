@@ -10,6 +10,8 @@ from llm_model import LLMModel
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
+import time
+
 from dotenv import load_dotenv
 load_dotenv()
 from streamlit.runtime.scriptrunner import RerunException, RerunData
@@ -70,8 +72,14 @@ if user_input:
 
             assistant_reply = output
             st.session_state.chat_history.append(("assistant", assistant_reply))
-
-            st.chat_message("assistant").write(assistant_reply)
+            assistant_msg = st.chat_message("assistant")
+            with assistant_msg:
+                placeholder = st.empty()
+                displayed = ""
+                for ch in assistant_reply:
+                    displayed += ch
+                    placeholder.write(displayed)
+                    time.sleep(0.02)
 
         except Exception as e:
             st.error(f"Terjadi kesalahan: {e}")
